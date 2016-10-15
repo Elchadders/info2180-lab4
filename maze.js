@@ -11,16 +11,22 @@ window.onload = function()
 	{
 		bound[i].addEventListener("mouseover",allborders);
 	}
-	
-function start()
+
+function allborders()
 {
-	flag = false;
+	flag = true;
 	var bound = document.querySelectorAll(".boundary");
 	
+	for (i=0; i <bound.length; i++)
+	{
+		if(flag)
+		{
+			document.getElementById("status").textContent = "Sorry you lost";
+		}else{
+			document.getElementById("status").textContent = "You win";
+		}
+	}
+}
 }
 
-function restart()
-{
-	window.location.reload();
-}
-}
+
