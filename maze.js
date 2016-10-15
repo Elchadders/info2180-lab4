@@ -1,16 +1,52 @@
 window.onload = function() {
 	
-   document.getElementById('boundary1').addEventListener("mouseover",allborders);
-}     
+{
+	 var flag = false;
+	 var bound = document.querySelectorAll(".boundary");
+	 
+	 document.getElementById("start").addEventListener("mouseover",start);
+	 document.getElementById("end").addEventListener("mouseover",end);
+	 for (i =0; i<bound.length; i++)
+	 {
+		 bound[i].addEventListener("mouseover",allborders);
+	 }
+}
+
 
 function allborders()
 {
-	hit = true;
-	var walls = document.querySelectorAll(".boundary");
-	for (var i=0;i < walls.length; i++)
+	
+	var bound = document.querySelectorAll(".boundary");
+	for (i = 0; i < bound.length; i++)
 	{
-		walls[i].className = "boundary youlose";
-		document.getElementById("status").innerHTML = "You Loser.";
+		bound[i].className = "boundary youlose";
+	}
+	document.getElementById("start").addEventListener("click",reset);
+}
+
+
+
+function start()
+{
+	var bound = document.querySelectorAll(".boundary");
+	for (i =0; i < bound.length; i++)
+	{
+		bound[i].classList.remove("youlose");	
 	}
 }
 
+
+function end()
+{
+	flag = true;
+	
+	if(flag)
+	{
+		alert("Sorry you lost");
+		
+	}
+	else
+	{
+		alert("You win!");
+	}
+}
