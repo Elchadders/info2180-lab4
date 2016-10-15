@@ -1,52 +1,26 @@
-window.onload = function() {
-	
+window.onload = function()
 {
-	 var flag = false;
-	 var bound = document.querySelectorAll(".boundary");
-	 
-	 document.getElementById("start").addEventListener("mouseover",start);
-	 document.getElementById("end").addEventListener("mouseover",end);
-	 for (i =0; i<bound.length; i++)
-	 {
-		 bound[i].addEventListener("mouseover",allborders);
-	 }
-}
-
-
-function allborders()
-{
+	var flag = false;
+	varbound = document.querySelectorAll(".boundary");
 	
-	var bound = document.querySelectorAll(".boundary");
-	for (i = 0; i < bound.length; i++)
+	document.getElementById("start").addEventListener("click",restart);
+	document.getElementById("start").addEventListener("mouseover",start);
+	document.getElementById("end").addEventListener("mouseover",end);
+	
+	for ( i = 0; i <bound.length; i++)
 	{
-		bound[i].className = "boundary youlose";
+		bound[i].addEventListener("mouseover",allborders);
 	}
-	document.getElementById("start").addEventListener("click",reset);
-}
-
-
-
+	
 function start()
 {
+	flag = false;
 	var bound = document.querySelectorAll(".boundary");
-	for (i =0; i < bound.length; i++)
-	{
-		bound[i].classList.remove("youlose");	
-	}
+	
 }
 
-
-function end()
+function restart()
 {
-	flag = true;
-	
-	if(flag)
-	{
-		alert("Sorry you lost");
-		
-	}
-	else
-	{
-		alert("You win!");
-	}
+	window.location.reload();
+}
 }
